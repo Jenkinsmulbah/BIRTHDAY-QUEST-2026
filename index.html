@@ -1,14 +1,56 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#831843">
+  <meta name="description" content="Another Beautiful Year — Prosper's Edition. A birthday celebration made for Prosper Paye.">
+  <meta name="author" content="Jenkins B. Mulbah">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Another Beautiful Year — Prosper's Edition</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23831843'/%3E%3Ccircle cx='50' cy='56' r='22' fill='%23fce7f3'/%3E%3Crect x='46' y='20' width='8' height='20' rx='3' fill='%23db2777'/%3E%3C/svg%3E">
+
+  <!-- Load order matters: tokens and resets first, then components, motion, chapters. -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/experience.css">
+
+  <script type="module" src="src/app.js"></script>
 </head>
-
 <body>
-  
-</body>
+  <a class="skip-link" href="#stage">Skip to the celebration</a>
 
+  <div id="app" class="app" data-chapter="0">
+
+    <header class="app-bar">
+      <p class="app-bar__title">Another Beautiful Year</p>
+
+      <!-- Wired up by src/audio.js through src/app.js -->
+      <div class="audio-controls" role="group" aria-label="Music controls">
+        <button type="button" id="audio-toggle" class="icon-button" aria-pressed="false" aria-label="Play music" disabled>
+          <span class="icon-button__label">Play</span>
+        </button>
+        <button type="button" id="audio-mute" class="icon-button" aria-pressed="false" aria-label="Mute music" disabled>
+          <span class="icon-button__label">Mute</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Chapter progress, rendered by src/app.js -->
+    <nav id="chapter-progress" class="chapter-progress" aria-label="Chapter progress"></nav>
+
+    <!-- Each chapter is rendered into this container, one at a time. -->
+    <main id="stage" class="stage" tabindex="-1" aria-live="polite">
+      <p id="boot-message" class="boot-message">Getting your celebration ready…</p>
+      <noscript>
+        <p class="boot-message">This celebration needs JavaScript. Please turn it on in your browser settings and reload the page.</p>
+      </noscript>
+    </main>
+
+    <!-- Decorative layers: particles and confetti draw here. Hidden from assistive technology. -->
+    <div id="effects-layer" class="effects-layer" aria-hidden="true"></div>
+  </div>
+</body>
 </html>
